@@ -7,9 +7,14 @@ function App() {
 
   return (
     <>
-     <Postdata></Postdata>
-     <Postdata></Postdata>
-     <Postdata></Postdata>
+      <div className='container'>
+        <main id='content'>
+          <ul className='list-group list-group-horizontal'></ul>
+          <li className='list-group-item'>
+            <Postdata></Postdata>
+          </li>
+        </main>
+      </div>
     </>
   )
 }
