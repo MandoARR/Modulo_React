@@ -1,7 +1,5 @@
 //Componentes de React son funciones
 //<></> es un componente vacio / empty element / void element
-import 'bootstrap/dist/css/bootstrap.css'
-
 function Post() {
     return (
         <div className="card text-center mb-3" style={{"width": "18rem;"}}>
