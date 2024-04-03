@@ -1,0 +1,198 @@
+/* MAIN */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #d6d6d6;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #dfdfdf;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* INPUT FORM */
+.input-form {
+  display: flex;
+  gap: 10px;
+}
+
+.input-form input {
+  border-radius: 10px;
+  padding-left: 10px;
+  width: 200px;
+  outline: none;
+  height: 25px;
+}
+
+.input-form button:active {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: #4b4b4b;
+  transition: background-color 0.2s;
+}
+
+/* TODO LIST */
+.main-container {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
+}
+
+/* ITEM */
+.line-through {
+  text-decoration: line-through;
+}
+
+.container-item {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  animation: show 0.3s ease-in-out;
+}
+@keyframes show {
+  0% {
+    color: yellow;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    color: inherit;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Editable Item */
+svg[data-icon="xmark"] {
+  color: red;
+  cursor: pointer;
+
+}
+
+.container-item .remove-button {
+  color: transparent;
+  background: transparent;
+  border: none;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container-item .remove-button svg[data-icon="xmark"] {
+  color: transparent;
+}
+
+.container-item:hover .remove-button svg[data-icon="xmark"]{
+  color: red;
+}
+
+.container-item.removing {
+  animation: hide 0.3s ease-in-out;
+}
+
+@keyframes hide {
+  0% {
+    transform: rotateZ(0deg);
+    top: 0;
+    opacity: 1;
+  }
+  25% {
+    transform: rotateZ(-15deg);
+  }
+  100% {
+    top: 300px;
+    transform: rotateZ(-5deg);
+    opacity: 0;
+  }
+}
+
+/* CONTAINER */
+.container-border {
+  border: 2px dashed green;
+  border-radius: 15px;
+  padding: 0px 10px 10px 10px;
+  min-width: 220px;
+}
+
+/* Editable Item */
+.editable-item-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 4px 0px 4px 4px;
+}
+
+.editable-item-container input{
+  border-radius: 10px;
+  padding-left: 10px;
+  width: 160px;
+  outline: none;
+  height: 20px;
+}
+
+.editable-item-container button{
+  background: transparent;
+  border: none;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+  color: white;
+}
