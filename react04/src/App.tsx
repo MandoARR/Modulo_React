@@ -9,38 +9,32 @@ function App() {
 
   const [tarjetas, setTarjetas] = useState([])
 
-
-  function botonClickHandler() {
+  function actualizaValores(t, d) {
     let nuevoArreglo = tarjetas.filter(x => true)
-    nuevoArregloArreglo.push({"titulo" : "Otro titulo", "descripcion" : "Otra Descripcion"})
+    nuevoArreglo.push({ "titulo": t, "descripcion": d })
     setTarjetas(nuevoArreglo)
+
   }
 
   return (
     <>
-      <div className='container'>
+      <div className='container text-center'>
         <main id="content">
-          <ul className="list-group list-group-horizontal">
+          <div className="row row-cols-auto">
+
             {tarjetas.map(tarjeta => (
-              <li className="list-group-item">
-                <Post titulo="Titulo" descripcion="Descripcion breve" />
-              </li>
+              <div className="col">
+                <Post titulo={tarjeta.titulo} descripcion={tarjeta.descripcion} />
+              </div>
             ))}
 
-
-
-          </ul>
-
-          <ul className="list-group">
-            <li className="list-group-item"><AgregarPost /></li>
-          </ul>
-
-          <ul>
-            <p></p>
-            <button onClick={botonClickHandler} type="button" className="btn btn-outline-primary">Agregar</button>
-          </ul>
-
+          </div>
         </main>
+        <p></p>
+
+
+        <AgregarPost onAgregarPostChange={actualizaValores} />
+        <p></p>
       </div>
     </>
   )
