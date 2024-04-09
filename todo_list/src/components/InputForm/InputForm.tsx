@@ -5,6 +5,7 @@ export function InputForm({ onAddItem }: any){
         const form = new FormData(event.target)
         const text: string = form.get("item") as string
         onAddItem(text)
+        event.target.reset()
     } 
 
     return(
@@ -14,7 +15,8 @@ export function InputForm({ onAddItem }: any){
             type="text" 
             placeholder="Agregar aquí" 
             required 
-            autoFocus></input>
+            autoFocus
+            />
 
             <button>Agregar</button>
         </form>
