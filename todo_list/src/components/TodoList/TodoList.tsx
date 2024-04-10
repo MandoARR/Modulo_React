@@ -3,13 +3,28 @@ import { InputForm } from "../InputForm/InputForm"
 import { Container } from "../Container/Conteiner"
 import { Item } from "../Item/Item"
 
+export interface ITask{
+    id:string
+    text:string
+    checked: boolean
+}
 
 function TodoList() {
-    const [items, setItems] = useState<string[]>([])
+    const [items, setItems] = useState<ITask[]>([])
 
     const handleAddItem = (text: string) => {
-
-        setItems([...items, text])
+        const task: ITask = {
+            id: crypto.randomUUID(),
+            text:text,
+            checked:false
+        }
+        setItems([...items, task])
+    }
+    
+    const handleCheckboxClick = ({item: ITask}: void) => {
+        const newItems = item.filter((_item: ITask) => _item.id !== item.id)
+        newItems.push(item)
+        setItems(newItems)
     }
 
     return (
@@ -17,8 +32,16 @@ function TodoList() {
             <InputForm onAddItem={handleAddItem} />
             <section className="main-container">
                 <Container titulo="Tareas Pendientes" >
-                    {items.map((item) => {
-                        return <Item text={item}></Item>
+                    {items
+                    .filter((item) => !item.checked)
+                    .map((item, index) => {
+                        return (
+                            <Item 
+                            key={index}
+                            item={item}
+                            onCheckboxClick={handleCheckboxClick}
+                            ></Item>
+                        )
                     })}
                 </Container>
                 <Container titulo="Tareas Realizadas" />
