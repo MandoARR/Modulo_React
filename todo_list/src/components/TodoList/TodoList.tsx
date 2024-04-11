@@ -21,7 +21,7 @@ function TodoList() {
         setItems([...items, task])
     }
 
-    const handleCheckboxClick = ({item: ITask }: void) => {
+    const handleCheckboxClick = (item: ITask) => {
         const newItems = items.filter((_item: ITask) => _item.id !== item.id)
         newItems.push(item)
         setItems(newItems)

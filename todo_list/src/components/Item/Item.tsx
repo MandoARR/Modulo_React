@@ -28,7 +28,7 @@ export function Item({ item, onCheckboxClick, onRemoveItem }: { item: ITask; onC
     return (
 
         <div className="container-item">
-            <input type="checkbox" checked={item.checked} onChange={handleChange}/>
+            <input type="checkbox" checked={item.checked} onChange={handleChange} />
             <span>{item.text}</span>
             <button onClick={handleOnClick}>X</button>
         </div>
