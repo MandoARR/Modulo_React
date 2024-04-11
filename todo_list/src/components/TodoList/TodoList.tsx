@@ -3,9 +3,9 @@ import { InputForm } from "../InputForm/InputForm"
 import { Container } from "../Container/Conteiner"
 import { Item } from "../Item/Item"
 
-export interface ITask{
-    id:string
-    text:string
+export interface ITask {
+    id: string
+    text: string
     checked: boolean
 }
 
@@ -15,15 +15,20 @@ function TodoList() {
     const handleAddItem = (text: string) => {
         const task: ITask = {
             id: crypto.randomUUID(),
-            text:text,
-            checked:false
+            text: text,
+            checked: false
         }
         setItems([...items, task])
     }
-    
-    const handleCheckboxClick = ({item: ITask}: void) => {
-        const newItems = item.filter((_item: ITask) => _item.id !== item.id)
+
+    const handleCheckboxClick = ({item: ITask }: void) => {
+        const newItems = items.filter((_item: ITask) => _item.id !== item.id)
         newItems.push(item)
+        setItems(newItems)
+    }
+
+    const handleRemoveItem = (item:ITask):void => {
+        const newItems = items.filter((_item: ITask) => _item.id !== item.id)
         setItems(newItems)
     }
 
@@ -33,18 +38,32 @@ function TodoList() {
             <section className="main-container">
                 <Container titulo="Tareas Pendientes" >
                     {items
-                    .filter((item) => !item.checked)
-                    .map((item, index) => {
-                        return (
-                            <Item 
-                            key={index}
-                            item={item}
-                            onCheckboxClick={handleCheckboxClick}
-                            ></Item>
-                        )
-                    })}
+                        .filter((item) => !item.checked)
+                        .map((item, index) => {
+                            return (
+                                <Item
+                                    key={index}
+                                    item={item}
+                                    onCheckboxClick={handleCheckboxClick}
+                                    onRemoveItem={handleRemoveItem}
+                                ></Item>
+                            )
+                        })}
                 </Container>
-                <Container titulo="Tareas Realizadas" />
+                <Container titulo="Tareas Realizadas">
+                    {items
+                        .filter((item) => item.checked)
+                        .map((item, index) => {
+                            return (
+                                <Item
+                                    key={index}
+                                    item={item}
+                                    onCheckboxClick={handleCheckboxClick}
+                                    onRemoveItem={handleRemoveItem}
+                                ></Item>
+                            )
+                        })}
+                </Container>
             </section>
         </div>
     )
