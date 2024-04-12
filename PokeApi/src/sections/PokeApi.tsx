@@ -6,7 +6,7 @@ import { PokeItem, PokemonResponse } from "../models/pokemons";
 const URL = "https://pokeapi.co/api/v2/pokemon/"
 
 export function PokeApi() {
-    const [pokemons, setPokemons] = useState<PokeItem[]>()
+    const [pokemons, setPokemons] = useState<PokeItem[]>([])
 
     // Recibe función anónima y una dependencia
     // Esta dependcia dicta cuando se ejecuta la función anónima
