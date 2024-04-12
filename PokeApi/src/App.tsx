@@ -4,9 +4,7 @@ import { PokeApi } from './sections/PokeApi'
 
 function App() {
   return (
-    <div>
       <PokeApi></PokeApi>
-    </div>
   )
 }
 
