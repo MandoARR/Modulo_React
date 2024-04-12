@@ -10,7 +10,7 @@ export function PokeApi() {
 
     // Recibe función anónima y una dependencia
     // Esta dependcia dicta cuando se ejecuta la función anónima
-    // Cuando la dependencia cambia, se ejecuta la función anónima
+    // Cuando la dependenc-ia cambia, se ejecuta la función anónima
     // Cuando está [] vacío, se ejecuta solo una vez
 
     useEffect(() => {
