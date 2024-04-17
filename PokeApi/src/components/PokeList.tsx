@@ -17,7 +17,9 @@ export function PokeList({ pokemons }: { pokemons: PokeItem[] }) {
                         <td>{pokemon.name}</td>
                         <td>{pokemon.url}</td>
                         <td>
-                            <button>Detalles</button>
+                            <button onClick={}>
+                                Detalles
+                                </button>
                         </td>
                     </tr>
                 ))}
