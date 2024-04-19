@@ -1,6 +1,15 @@
 import { PokeItem } from "../models/pokemons";
 
-export function PokeList({ pokemons }: { pokemons: PokeItem[] }) {
+export function PokeList({
+    pokemons, onClickDetails
+}: {
+    pokemons: PokeItem[];
+    onClickDetails: (url: string) => void
+}) {
+    const handleClickDetails = (url: string) => {
+        onClickDetails(url)
+    }
+
     return (
         <table>
             <thead>
@@ -11,15 +20,15 @@ export function PokeList({ pokemons }: { pokemons: PokeItem[] }) {
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody>-
                 {pokemons.map((pokemon: PokeItem) => (
                     <tr key={pokemon.name}>
                         <td>{pokemon.name}</td>
                         <td>{pokemon.url}</td>
                         <td>
-                            <button onClick={}>
+                            <button onClick={() => handleClickDetails(pokemon.url)}>
                                 Detalles
-                                </button>
+                            </button>
                         </td>
                     </tr>
                 ))}
