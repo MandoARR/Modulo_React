@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import './index.css'
 import { List } from './components/List.tsx'
-import { Detalle } from './components/Detalle.tsx'
+import { Detalle, loader as detalleLoader } from './components/Detalle.tsx'
 import { RoolLayout } from './routes/RootLayout.tsx'
 
 
@@ -13,7 +13,7 @@ const routerConfig = createBrowserRouter([
     path: "/", element: <RoolLayout />, children: [
       { path: "/", element: <App /> },
       { path: "/lista", element: <List /> },
-      { path: "/otro", element: <Detalle /> }
+      { path: "/detalles/:nombre", element: <Detalle />, loader:  detalleLoader}
     ]
   }
 ])

@@ -3,11 +3,16 @@ import './App.css'
 import { NumerosAleatorios } from './components/NumerosAleatorios'
 
 function App() {
-  
+
 
   return (
     <>
-      <NumerosAleatorios/>
+      <div>
+        <NumerosAleatorios />
+        <NumerosAleatorios />
+        <NumerosAleatorios />
+        <NumerosAleatorios />
+      </div>
     </>
   )
 }
