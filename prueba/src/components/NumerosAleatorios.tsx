@@ -15,7 +15,7 @@ export function NumerosAleatorios() {
     return (
         <>
             <div>
-                <h1>Números Aleatoris</h1>
+                <h1>Números Aleatorios</h1>
                 {numeroRandom1 >= 0 ? (
                     <>
                         <p>Número: {numeroRandom1}</p>
