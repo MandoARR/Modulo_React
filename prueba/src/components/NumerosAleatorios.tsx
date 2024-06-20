@@ -27,7 +27,9 @@ export function NumerosAleatorios() {
                     </>) : ''}
 
                 <button onClick={aleatorio}>Generar Números</button>
-                {numeroRandom1 === numeroRandom2 && numeroRandom2 === numeroRandom3 ? <h2>Los Números son Iguales</h2> : ''}
+                {numeroRandom1 === numeroRandom2 && numeroRandom2 === numeroRandom3 ? 
+                <h2>Los Números son Iguales</h2> 
+                : ''}
             </div>
         </>
     )
